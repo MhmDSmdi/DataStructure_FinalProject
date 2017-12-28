@@ -11,6 +11,10 @@ public class GraphList {
         cost = new ArrayList<>();
     }
 
+    public ArrayList<Edge> getCost() {
+        return cost;
+    }
+
     private boolean isConnected(int v1, int v2) {
         GNode root = adjacencyList[v1];
         while(root != null){

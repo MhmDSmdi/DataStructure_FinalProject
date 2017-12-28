@@ -78,8 +78,7 @@ public class GraphArray {
         GraphArray b = new GraphArray(a.fetchAdjacencyMatrix(), a.getInputSize());
         b.fetchCostOfEdges();
         System.out.println();
-        for (Edge r : b.cost)
-            System.out.println(r.getCost());
+        System.out.println(b.cost.size());
 
     }
 
