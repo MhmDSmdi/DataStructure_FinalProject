@@ -40,12 +40,6 @@ public class InputHandler {
             for (int i = 0 ; i < vertexData.size() - 1 ; i += 2) {
                 adjacencyMatrix[vertexData.get(i)][vertexData.get(i + 1)] = 1;
             }
-            /*for (int i = 0 ; i < vertexNum ; i++) {
-                for (int j = 0; j < vertexNum; j++) {
-                    if(adjacencyMatrix[i][j] != 0)
-                        System.out.println(i + " and " + j);
-                }
-            }*/
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -63,7 +57,7 @@ public class InputHandler {
             ArrayList<Integer> recentVertex = new ArrayList<>();
             while(scanner.hasNext()) {
                 temp = scanner.nextLine();
-                String[] splited = temp.split("\t");
+                String[] splited = temp.split(",");
                 vertexData.add(Integer.parseInt(splited[0]));
                 vertexData.add(Integer.parseInt(splited[1]));
                 if (!recentVertex.contains(Integer.parseInt(splited[0])))
@@ -71,7 +65,6 @@ public class InputHandler {
                 if (!recentVertex.contains(Integer.parseInt(splited[1])))
                     recentVertex.add(Integer.parseInt(splited[1]));
             }
-
             inputSize = recentVertex.size() + 1;
             gNodes = new GNode[inputSize];
 
@@ -79,17 +72,43 @@ public class InputHandler {
                 GNode a = new GNode(gNodes[vertexData.get(i)], vertexData.get(i + 1));
                 gNodes[vertexData.get(i)] = a;
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return gNodes;
     }
 
+    public ArrayList<Edge> fetchAdjacencySparseMatrix() {
+        ArrayList<Edge> adjacencySparseList = new ArrayList<>();;
+        try {
+            FileInputStream fi = new FileInputStream(fileAddress);
+            Scanner scanner = new Scanner(fi);
+            String temp;
+            ArrayList<Integer> vertexData = new ArrayList<>();
+            while(scanner.hasNext()) {
+                temp = scanner.nextLine();
+                String[] splited = temp.split(",");
+                vertexData.add(Integer.parseInt(splited[0]));
+                vertexData.add(Integer.parseInt(splited[1]));
+            }
+            for (int i = 0 ; i < vertexData.size() - 1 ; i += 2) {
+                Edge edge = new Edge(vertexData.get(i + 1), vertexData.get(i), 0);
+                if (!adjacencySparseList.contains(edge)) {
+                    adjacencySparseList.add(edge);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return adjacencySparseList;
+    }
+
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
-        a.fetchAdjacencyList();
+        InputHandler a = new InputHandler("graph.txt");
+        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
+        ArrayList<Edge> d = a.fetchAdjacencySparseMatrix();
+        for (Edge f : d)
+            System.out.println("v1: " + f.getVertex1() + "    v2: " + f.getVertex2());
     }
 
 }

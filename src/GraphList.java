@@ -1,18 +1,31 @@
 import java.util.ArrayList;
 
-public class GraphList {
+public class GraphList extends Graph {
     private GNode[] adjacencyList;
-    private int numberOfVertices;
-    private ArrayList<Edge> cost;
 
     public GraphList(GNode[] adjacencyList, int numberOfVertices) {
         this.adjacencyList = adjacencyList;
         this.numberOfVertices = numberOfVertices;
-        cost = new ArrayList<>();
+        edges = new ArrayList<>();
+        fillEdges();
+        numberOfEdges = edges.size();
+        averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
-    public ArrayList<Edge> getCost() {
-        return cost;
+    public void printList() {
+        for (int i = 1 ; i < adjacencyList.length ; i++) {
+            GNode root = adjacencyList[i];
+            System.out.print("Parent " + i + " : ");
+            while (root != null) {
+                System.out.print(  root.getVertexNumber() + " - ");
+                root = root.getLink();
+            }
+            System.out.println();
+        }
+    }
+
+    public ArrayList<Edge> getEdges() {
+        return edges;
     }
 
     private boolean isConnected(int v1, int v2) {
@@ -51,7 +64,7 @@ public class GraphList {
         return count;
     }
 
-    private boolean DFS() {
+    protected boolean DFS() {
         Boolean[] visited = new Boolean[numberOfVertices];
         for (int i = 1 ; i < numberOfVertices ; i++)
             visited[i] = false;
@@ -64,7 +77,7 @@ public class GraphList {
         return true;
     }
 
-    private void DFS(int v, Boolean[] visited) {
+    protected void DFS(int v, Boolean[] visited) {
         visited[v] = true;
         GNode root = adjacencyList[v];
         while(root != null) {
@@ -74,7 +87,7 @@ public class GraphList {
         }
     }
 
-    private void deleteEdge(int v1, int v2) {
+    protected void deleteEdge(int v1, int v2) {
         GNode root = adjacencyList[v1];
         GNode prvRoot = null;
         if (root.getVertexNumber() == v2) {
@@ -114,62 +127,32 @@ public class GraphList {
         System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
-    public boolean isExist(int v1, int v2) {
-        for (Edge a : cost) {
+    private boolean isExist(int v1, int v2) {
+        for (Edge a : edges) {
             if ((v1 == a.getVertex1() && v2 == a.getVertex2()) || (v1 == a.getVertex2() && v2 == a.getVertex1()))
                 return true;
         }
         return false;
     }
 
-    private int calculateCost(int cycles, int degreeV1, int degreeV2) {
-        int temp;
-        try {
-            temp = ((cycles + 1) / (Math.min(degreeV1 - 1, degreeV2 - 1)));
-        }catch (ArithmeticException e) {
-            temp = Integer.MAX_VALUE;
-        }
-
-        return temp;
-    }
-
-    public void fetchCostOfEdges() {
+    protected void fillEdges() {
         GNode root;
-        cost = new ArrayList<>();
         for (int i = 0 ; i < numberOfVertices ; i++){
             root = adjacencyList[i];
             while (root != null) {
                 if (!isExist(i, root.getVertexNumber())) {
-                    int cost = calculateCost(countCycle(i, root.getVertexNumber()), degreeOfVertex(i), degreeOfVertex(root.getVertexNumber()));
-                    Edge temp = new Edge(i, root.getVertexNumber(), cost);
-                    this.cost.add(temp);
+                    Edge temp = new Edge(i, root.getVertexNumber(), 0);
+                    this.edges.add(temp);
                 }
                 root = root.getLink();
             }
         }
     }
 
-    public void identifyingCommunities(int sortType) {
-        Sort sort = new Sort();
-        while (DFS()) {
-            fetchCostOfEdges();
-            sort.doSort(cost, sortType, 0);
-            for (Edge a : cost)
-                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
-            System.out.println();
-            deleteEdge(cost.get(0).getVertex1(), cost.get(0).getVertex2());
-        }
-    }
-
-    public void identifyingCommunities(int sortType, int n) {
-        Sort sort = new Sort();
-        while (DFS()) {
-            fetchCostOfEdges();
-            sort.doSort(cost, sortType, n);
-            for (Edge a : cost)
-                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
-            System.out.println();
-            deleteEdge(cost.get(0).getVertex1(), cost.get(0).getVertex2());
+    protected void fetchCostOfEdges() {
+        for (Edge a : edges) {
+            int cost = calculateCost(countCycle(a.getVertex1(), a.getVertex2()), degreeOfVertex(a.getVertex1()), degreeOfVertex(a.getVertex2()));
+            a.setCost(cost);
         }
     }
 
@@ -178,6 +161,6 @@ public class GraphList {
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
         System.out.println();
         System.out.println();
-        b.identifyingCommunities(5, 30);
+        b.identifyingCommunities(1);
     }
 }

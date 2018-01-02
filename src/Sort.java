@@ -156,6 +156,7 @@ public class Sort {
         }
         return inputArray;
     }
+
     public ArrayList<Edge> doSort(ArrayList<Edge> inputArray, int type, int n) {
         switch (type){
             case 0:
@@ -179,8 +180,8 @@ public class Sort {
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
         b.fetchCostOfEdges();
         Sort e = new Sort();
-        e.insertion(b.getCost());
-        for (Edge d : b.getCost())
+        e.insertion(b.getEdges());
+        for (Edge d : b.getEdges())
             System.out.print("- " + d.getCost() + " -");
     }
 }
