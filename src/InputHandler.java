@@ -25,8 +25,7 @@ public class InputHandler {
             ArrayList<Integer> recentVertex = new ArrayList<>();
             while(scanner.hasNext()) {
                 temp = scanner.nextLine();
-                temp.replace(" ", "");
-                String[] splited = temp.split(",");
+                String[] splited = temp.split("\t");
                 vertexData.add(Integer.parseInt(splited[0]));
                 vertexData.add(Integer.parseInt(splited[1]));
                 if (!recentVertex.contains(Integer.parseInt(splited[0])))
@@ -64,7 +63,7 @@ public class InputHandler {
             ArrayList<Integer> recentVertex = new ArrayList<>();
             while(scanner.hasNext()) {
                 temp = scanner.nextLine();
-                String[] splited = temp.split(",");
+                String[] splited = temp.split("\t");
                 vertexData.add(Integer.parseInt(splited[0]));
                 vertexData.add(Integer.parseInt(splited[1]));
                 if (!recentVertex.contains(Integer.parseInt(splited[0])))
@@ -89,7 +88,7 @@ public class InputHandler {
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("/home/user/Downloads/test1.txt");
+        InputHandler a = new InputHandler("test1.txt");
         a.fetchAdjacencyList();
     }
 

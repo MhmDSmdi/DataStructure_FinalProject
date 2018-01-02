@@ -51,6 +51,69 @@ public class GraphList {
         return count;
     }
 
+    private boolean DFS() {
+        Boolean[] visited = new Boolean[numberOfVertices];
+        for (int i = 1 ; i < numberOfVertices ; i++)
+            visited[i] = false;
+        DFS(1, visited);
+
+        for (int i = 1 ; i < numberOfVertices ; i++) {
+            if (!visited[i])
+                return false;
+        }
+        return true;
+    }
+
+    private void DFS(int v, Boolean[] visited) {
+        visited[v] = true;
+        GNode root = adjacencyList[v];
+        while(root != null) {
+            if(!visited[root.getVertexNumber()])
+                DFS(root.getVertexNumber(), visited);
+            root = root.getLink();
+        }
+    }
+
+    private void deleteEdge(int v1, int v2) {
+        GNode root = adjacencyList[v1];
+        GNode prvRoot = null;
+        if (root.getVertexNumber() == v2) {
+            adjacencyList[v1] = root.getLink();
+        }
+        else
+            while (root != null) {
+                if (root.getVertexNumber() == v2) {
+                    prvRoot.setLink(root.getLink());
+                    root.setLink(null);
+                    break;
+                }
+                else {
+                    prvRoot = root;
+                    root = root.getLink();
+                }
+            }
+
+        root = adjacencyList[v2];
+        prvRoot = null;
+        if (root.getVertexNumber() == v1) {
+            adjacencyList[v2] = root.getLink();
+        }
+        else
+            while (root != null) {
+                if (root.getVertexNumber() == v1) {
+                    prvRoot.setLink(root.getLink());
+                    root.setLink(null);
+                    break;
+                }
+                else {
+                    prvRoot = root;
+                    root = root.getLink();
+                }
+            }
+
+        System.out.println(v1 + " and " + v2 + "  Was Removed");
+    }
+
     public boolean isExist(int v1, int v2) {
         for (Edge a : cost) {
             if ((v1 == a.getVertex1() && v2 == a.getVertex2()) || (v1 == a.getVertex2() && v2 == a.getVertex1()))
@@ -72,6 +135,7 @@ public class GraphList {
 
     public void fetchCostOfEdges() {
         GNode root;
+        cost = new ArrayList<>();
         for (int i = 0 ; i < numberOfVertices ; i++){
             root = adjacencyList[i];
             while (root != null) {
@@ -85,11 +149,35 @@ public class GraphList {
         }
     }
 
+    public void identifyingCommunities(int sortType) {
+        Sort sort = new Sort();
+        while (DFS()) {
+            fetchCostOfEdges();
+            sort.doSort(cost, sortType, 0);
+            for (Edge a : cost)
+                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
+            System.out.println();
+            deleteEdge(cost.get(0).getVertex1(), cost.get(0).getVertex2());
+        }
+    }
+
+    public void identifyingCommunities(int sortType, int n) {
+        Sort sort = new Sort();
+        while (DFS()) {
+            fetchCostOfEdges();
+            sort.doSort(cost, sortType, n);
+            for (Edge a : cost)
+                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
+            System.out.println();
+            deleteEdge(cost.get(0).getVertex1(), cost.get(0).getVertex2());
+        }
+    }
+
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("graph.txt");
+        InputHandler a = new InputHandler("test1.txt");
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
-        b.fetchCostOfEdges();
-        for (Edge f : b.cost)
-            System.out.println(f.getCost());
+        System.out.println();
+        System.out.println();
+        b.identifyingCommunities(5, 30);
     }
 }

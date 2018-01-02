@@ -4,13 +4,13 @@ public class Sort {
 
     private ArrayList<Edge> helperArray;
 
-    public ArrayList<Edge> quick(ArrayList<Edge> inputArray) {
+    private ArrayList<Edge> quick(ArrayList<Edge> inputArray) {
         quick(0, inputArray.size() - 1, inputArray);
         return inputArray;
     }
-    public void quick(int low, int high, ArrayList<Edge> inputArray) {
+    private void quick(int low, int high, ArrayList<Edge> inputArray) {
         int i = low, j = high;
-        int pivot = inputArray.get(0).getCost();
+        int pivot = inputArray.get((low + high) / 2).getCost();
         while (i <= j) {
             while (inputArray.get(i).getCost() < pivot) i++;
             while (inputArray.get(j).getCost()  > pivot) j--;
@@ -31,7 +31,7 @@ public class Sort {
         a.set(j, temp);
     }
 
-    public ArrayList insertion(ArrayList<Edge> inputArray) {
+    private ArrayList insertion(ArrayList<Edge> inputArray) {
         for (int j = 1; j < inputArray.size() ; j++) {
             Edge key = inputArray.get(j);
             int i = j - 1;
@@ -44,7 +44,20 @@ public class Sort {
         return inputArray;
     }
 
-    public ArrayList mergeSort(ArrayList inputArray) {
+    private ArrayList insertion(ArrayList<Edge> inputArray, int low, int high) {
+        for (int j = low + 1; j <= high ; j++) {
+            Edge key = inputArray.get(j);
+            int i = j - 1;
+            while ( (i > -1) && ( inputArray.get(i).getCost() > key.getCost() ) ) {
+                inputArray.set(i + 1, inputArray.get(i));
+                i--;
+            }
+            inputArray.set(i + 1, key);
+        }
+        return inputArray;
+    }
+
+    private ArrayList mergeSort(ArrayList inputArray) {
         helperArray = new ArrayList<Edge>();
         for (int i = 0 ; i < inputArray.size() ; i++)
            helperArray.add(null);
@@ -84,7 +97,7 @@ public class Sort {
     }
 
 
-    public ArrayList bubble(ArrayList<Edge> inputArray) {
+    private ArrayList bubble(ArrayList<Edge> inputArray) {
         int temp = 0;
         for (int i = 0; i < inputArray.size(); i++) {
             for (int j = 1; j < (inputArray.size() - i); j++) {
@@ -95,23 +108,78 @@ public class Sort {
         }
         return inputArray;
     }
-/*
-    public static ArrayList optimum(ArrayList inputArray) {
 
+    private ArrayList bubble(ArrayList<Edge> inputArray, int low, int high) {
+        int temp = 0;
+        for (int i = low; i <= high; i++) {
+            for (int j = low + 1 ; j <= (high - i); j++) {
+                if (inputArray.get(j - 1).getCost() > inputArray.get(j).getCost()) {
+                    swap(j, j - 1, inputArray);
+                }
+            }
+        }
+        return inputArray;
     }
-*/
+    private ArrayList optimumSort(ArrayList inputArray, int sortType, int n) {
+        optimum(inputArray, sortType, n, inputArray.size() - 1 , 0);
+        return inputArray;
+    }
 
+
+    /*
+    0 for BUBBLE
+    1 for INSERTION
+    */
+    private ArrayList optimum(ArrayList<Edge> inputArray, int sortType, int n, int high, int low) {
+        if (high - low + 1 > n) {
+            int i = low, j = high;
+            int pivot = inputArray.get((low + high) / 2).getCost();
+            while (i <= j) {
+                while (inputArray.get(i).getCost() < pivot) i++;
+                while (inputArray.get(j).getCost()  > pivot) j--;
+                if (i <= j) {
+                    swap(i, j, inputArray);
+                    i++;
+                    j--;
+                }
+            }
+            if (low < j)
+                optimum(inputArray, sortType, n, j, low);
+            if (i < high)
+                optimum(inputArray, sortType, n, high, i);
+        }
+        else {
+            if (sortType == 0)
+                bubble(inputArray, low, high);
+            else
+                insertion(inputArray, low, high);
+        }
+        return inputArray;
+    }
+    public ArrayList<Edge> doSort(ArrayList<Edge> inputArray, int type, int n) {
+        switch (type){
+            case 0:
+                return quick(inputArray);
+            case 1:
+                return insertion(inputArray);
+            case 2:
+                return mergeSort(inputArray);
+            case 3:
+                return bubble(inputArray);
+            case 4:
+                return optimumSort(inputArray, 0, n);
+            case 5:
+                return optimumSort(inputArray, 1, n);
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
+        InputHandler a = new InputHandler("test2.txt");
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
         b.fetchCostOfEdges();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
         Sort e = new Sort();
-        e.bubble(b.getCost());
+        e.insertion(b.getCost());
         for (Edge d : b.getCost())
             System.out.print("- " + d.getCost() + " -");
     }
