@@ -6,6 +6,7 @@ public abstract class Graph {
     protected ArrayList<Edge> edges;
     protected int numberOfEdges;
     protected float averageDegreeOfVertex;
+    protected int count = 0;
 
     protected abstract void fillEdges();
     protected abstract boolean DFS();
@@ -21,8 +22,13 @@ public abstract class Graph {
             fetchCostOfEdges();
             sort.doSort(edges, sortType, 0);
             deleteEdge(edges.get(0).getVertex1(), edges.get(0).getVertex2());
-            edges.remove(0);
+            System.out.println();
+            for (Edge a : edges)
+                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
+            System.out.println();
+            //edges.remove(0);
         }
+        count++;
     }
     protected void identifyingCommunities(int sortType, int n) {
         Sort sort = new Sort();
@@ -30,7 +36,11 @@ public abstract class Graph {
             fetchCostOfEdges();
             sort.doSort(edges, sortType, n);
             deleteEdge(edges.get(0).getVertex1(), edges.get(0).getVertex2());
-            edges.remove(0);
+            System.out.println();
+            for (Edge a : edges)
+                System.out.print(a.getCost() +"|(" +a.getVertex1() + " : " + a.getVertex2() + ")" + " - ");
+            System.out.println();
+            //edges.remove(0);
         }
     }
 

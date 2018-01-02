@@ -12,6 +12,7 @@ public class GraphArray extends Graph {
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
+    @Override
     protected void fillEdges() {
         for (int i = 1 ; i < numberOfVertices ; i++)
             for (int j = 0 + i ; j < numberOfVertices ; j++)
@@ -21,6 +22,7 @@ public class GraphArray extends Graph {
                 }
     }
 
+    @Override
     protected boolean DFS() {
         Boolean[] visited = new Boolean[numberOfVertices];
         for (int i = 1 ; i < numberOfVertices ; i++)
@@ -34,6 +36,7 @@ public class GraphArray extends Graph {
         return true;
     }
 
+    @Override
     protected void DFS(int v, Boolean[] visited) {
         visited[v] = true;
         for (int i = 1 ; i < numberOfVertices ; i++) {
@@ -42,7 +45,8 @@ public class GraphArray extends Graph {
         }
     }
 
-    public int countCycle(int v1, int v2) {
+    @Override
+    protected int countCycle(int v1, int v2) {
         int count = 0;
         if (adjacencyMatrix[v1][v2] == 1) {
             for (int i = 1 ; i < numberOfVertices ; i++) {
@@ -55,7 +59,8 @@ public class GraphArray extends Graph {
             return 0;
     }
 
-    public int degreeOfVertex(int v) {
+    @Override
+    protected int degreeOfVertex(int v) {
         int count = 0;
         for (int i = 1 ; i < numberOfVertices ; i++){
             if (adjacencyMatrix[v][i] == 1)
@@ -64,6 +69,7 @@ public class GraphArray extends Graph {
         return count;
     }
 
+    @Override
     protected void fetchCostOfEdges() {
         for (Edge a : edges) {
             int cost = calculateCost(countCycle(a.getVertex1(), a.getVertex2()), degreeOfVertex(a.getVertex1()), degreeOfVertex(a.getVertex2()));
@@ -71,13 +77,15 @@ public class GraphArray extends Graph {
         }
     }
 
-    public void deleteEdge(int v1, int v2) {
+    @Override
+    protected void deleteEdge(int v1, int v2) {
         adjacencyMatrix[v1][v2] = adjacencyMatrix[v2][v1] = 0;
+        edges.remove(0);
         System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
+        InputHandler a = new InputHandler("graph.txt");
         GraphArray b = new GraphArray(a.fetchAdjacencyMatrix(), a.getInputSize());
         System.out.println();
         System.out.println();
