@@ -8,7 +8,7 @@ public class GraphSparse extends Graph {
     }
 
     @Override
-    protected void fillEdges() { }
+    protected void fillEdges() {}
 
     @Override
     protected boolean DFS() {
@@ -28,10 +28,10 @@ public class GraphSparse extends Graph {
     protected void DFS(int v, Boolean[] visited) {
         visited[v] = true;
         for (Edge a : edges) {
-            if (a.getVertex1() == v && !visited[a.getVertex2()])
-                DFS(a.getVertex2(), visited);
-            if (a.getVertex2() == v && !visited[a.getVertex1()])
-                DFS(a.getVertex1(), visited);
+            if (a.getVertex1().getVertexNumber() == v && !visited[a.getVertex2().getVertexNumber()])
+                DFS(a.getVertex2().getVertexNumber(), visited);
+            if (a.getVertex2().getVertexNumber() == v && !visited[a.getVertex1().getVertexNumber()])
+                DFS(a.getVertex1().getVertexNumber(), visited);
         }
     }
 
@@ -42,16 +42,16 @@ public class GraphSparse extends Graph {
         ArrayList<Integer> list1 = new ArrayList<>();
         ArrayList<Integer> list2 = new ArrayList<>();
         for (int i = 0 ; i < edges.size() ; i++) {
-            if (!exist && (edges.get(i).getVertex1() == v1 && edges.get(i).getVertex2() == v2) || (edges.get(i).getVertex1() == v2 && edges.get(i).getVertex2() == v1))
+            if (!exist && (edges.get(i).getVertex1().getVertexNumber() == v1 && edges.get(i).getVertex2().getVertexNumber() == v2) || (edges.get(i).getVertex1().getVertexNumber() == v2 && edges.get(i).getVertex2().getVertexNumber() == v1))
                 exist = true;
-            if(edges.get(i).getVertex1() == v1)
-                list1.add(edges.get(i).getVertex2());
-            if(edges.get(i).getVertex2() == v1)
-                list1.add(edges.get(i).getVertex1());
-            if(edges.get(i).getVertex1() == v2)
-                list2.add(edges.get(i).getVertex2());
-            if(edges.get(i).getVertex2() == v2)
-                list2.add(edges.get(i).getVertex1());
+            if(edges.get(i).getVertex1().getVertexNumber() == v1)
+                list1.add(edges.get(i).getVertex2().getVertexNumber());
+            if(edges.get(i).getVertex2().getVertexNumber() == v1)
+                list1.add(edges.get(i).getVertex1().getVertexNumber());
+            if(edges.get(i).getVertex1().getVertexNumber() == v2)
+                list2.add(edges.get(i).getVertex2().getVertexNumber());
+            if(edges.get(i).getVertex2().getVertexNumber() == v2)
+                list2.add(edges.get(i).getVertex1().getVertexNumber());
         }
         if (!exist)
             return 0;
@@ -68,7 +68,7 @@ public class GraphSparse extends Graph {
     protected int degreeOfVertex(int v) {
         int degree = 0;
         for (Edge a : edges)
-            if(a.getVertex1() == v || a.getVertex2() == v)
+            if(a.getVertex1().getVertexNumber() == v || a.getVertex2().getVertexNumber() == v)
                 degree++;
         return degree;
     }
@@ -76,7 +76,7 @@ public class GraphSparse extends Graph {
     @Override
     protected void fetchCostOfEdges() {
         for (Edge a : edges) {
-            int cost = calculateCost(countCycle(a.getVertex1(), a.getVertex2()), degreeOfVertex(a.getVertex1()), degreeOfVertex(a.getVertex2()));
+            int cost = calculateCost(countCycle(a.getVertex1().getVertexNumber(), a.getVertex2().getVertexNumber()), degreeOfVertex(a.getVertex1().getVertexNumber()), degreeOfVertex(a.getVertex2().getVertexNumber()));
             a.setCost(cost);
         }
     }
@@ -85,7 +85,7 @@ public class GraphSparse extends Graph {
     protected void deleteEdge(int v1, int v2) {
         int index = 0;
         for (int i = 0 ; i < edges.size() ; i++) {
-            if ((edges.get(i).getVertex1() == v1 && edges.get(i).getVertex2() == v2) || (edges.get(i).getVertex1() == v2 && edges.get(i).getVertex2() == v1)) {
+            if ((edges.get(i).getVertex1().getVertexNumber() == v1 && edges.get(i).getVertex2().getVertexNumber() == v2) || (edges.get(i).getVertex1().getVertexNumber() == v2 && edges.get(i).getVertex2().getVertexNumber() == v1)) {
                 index = i;
                 break;
             }
@@ -94,14 +94,22 @@ public class GraphSparse extends Graph {
         System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
+    @Override
+    protected void write2File() {
+
+    }
+
     public void print() {
         for (Edge a : edges)
-            System.out.println("V1 = " + a.getVertex1() + "    V2 = " + a.getVertex2());
+            System.out.println("V1 = " + a.getVertex1().getVertexNumber() + "    V2 = " + a.getVertex2().getVertexNumber());
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
+        InputHandler a = new InputHandler("graph.txt");
         GraphSparse b = new GraphSparse(a.fetchAdjacencySparseMatrix(), a.getInputSize());
+        System.out.println(a.time);
         b.identifyingCommunities(5,1);
+        for (Edge d : b.edges)
+            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
     }
 }

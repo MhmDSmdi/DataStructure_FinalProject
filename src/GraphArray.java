@@ -17,7 +17,7 @@ public class GraphArray extends Graph {
         for (int i = 1 ; i < numberOfVertices ; i++)
             for (int j = 0 + i ; j < numberOfVertices ; j++)
                 if (adjacencyMatrix[i][j] == 1){
-                    Edge temp = new Edge(i, j, 0);
+                    Edge temp = new Edge(new Vertex(i), new Vertex(j), 0);
                     this.edges.add(temp);
                 }
     }
@@ -72,7 +72,7 @@ public class GraphArray extends Graph {
     @Override
     protected void fetchCostOfEdges() {
         for (Edge a : edges) {
-            int cost = calculateCost(countCycle(a.getVertex1(), a.getVertex2()), degreeOfVertex(a.getVertex1()), degreeOfVertex(a.getVertex2()));
+            int cost = calculateCost(countCycle(a.getVertex1().getVertexNumber(), a.getVertex2().getVertexNumber()), degreeOfVertex(a.getVertex1().getVertexNumber()), degreeOfVertex(a.getVertex2().getVertexNumber()));
             a.setCost(cost);
         }
     }
@@ -84,11 +84,16 @@ public class GraphArray extends Graph {
         System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
+    @Override
+    protected void write2File() {
+
+    }
+
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("graph.txt");
+       /* InputHandler a = new InputHandler("graph.txt");
         GraphArray b = new GraphArray(a.fetchAdjacencyMatrix(), a.getInputSize());
         System.out.println();
         System.out.println();
-        b.identifyingCommunities(1);
+        b.identifyingCommunities(1);*/
     }
 }

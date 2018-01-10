@@ -64,6 +64,7 @@ public class Sort {
         mergeSort(0, inputArray.size() - 1, inputArray);
         return inputArray;
     }
+
     private void mergeSort(int low, int high, ArrayList<Edge> inputArray) {
         if (low < high) {
             int middle = (high + low) / 2;
@@ -72,10 +73,10 @@ public class Sort {
             merge(low, middle, high, inputArray);
         }
     }
+
     private void merge(int low, int middle, int high, ArrayList<Edge> inputArray) {
-        for (int i = low; i <= high; i++) {
+        for (int i = low; i <= high; i++)
             helperArray.set(i, inputArray.get(i));
-        }
         int i = low;
         int j = middle + 1;
         int k = low;
@@ -175,9 +176,36 @@ public class Sort {
         return null;
     }
 
+    private ArrayList<Vertex> quickVertex(ArrayList<Vertex> inputArray) {
+        quickVertex(0, inputArray.size() - 1, inputArray);
+        return inputArray;
+    }
+    private void quickVertex(int low, int high, ArrayList<Vertex> inputArray) {
+        int i = low, j = high;
+        int pivot = inputArray.get((low + high) / 2).getVertexNumber();
+        while (i <= j) {
+            while (inputArray.get(i).getVertexNumber() < pivot) i++;
+            while (inputArray.get(j).getVertexNumber()  > pivot) j--;
+            if (i <= j) {
+                swapVertex(i, j, inputArray);
+                i++;
+                j--;
+            }
+        }
+        if (low < j)
+            quickVertex(low, j, inputArray);
+        if (i < high)
+            quickVertex(i, high, inputArray);
+    }
+    private void swapVertex(int i, int j, ArrayList<Vertex> a) {
+        Vertex temp = a.get(i);
+        a.set(i, a.get(j));
+        a.set(j, temp);
+    }
+
     public static void main(String[] args) {
         InputHandler a = new InputHandler("test2.txt");
-        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getInputSize());
+        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(),a.getInputSize());
         b.fetchCostOfEdges();
         Sort e = new Sort();
         e.insertion(b.getEdges());
