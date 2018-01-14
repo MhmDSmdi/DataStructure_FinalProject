@@ -30,4 +30,12 @@ public class Vertex {
     public void setCommunityName(String communityName) {
         this.communityName = communityName;
     }
+
+    public void plusDegree() {
+        degree++;
+    }
+
+    public void minusDegree() {
+        degree--;
+    }
 }

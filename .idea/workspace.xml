@@ -2,29 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83526287-b4f2-446c-b45a-e1a0898764c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/g1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/TimeHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Vertex.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test6.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/Edge.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/Edge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/GNode.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/GNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/Graph.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/Graph.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/GraphArray.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/GraphArray.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/GraphList.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/GraphList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/GraphSparse.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/GraphSparse.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/InputHandler.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/InputHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/Sort.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/Sort.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DS_project2/Vertex.class" afterPath="$PROJECT_DIR$/out/production/DS_project2/Vertex.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graph.txt" afterPath="$PROJECT_DIR$/graph.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Edge.java" afterPath="$PROJECT_DIR$/src/Edge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Graph.java" afterPath="$PROJECT_DIR$/src/Graph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphArray.java" afterPath="$PROJECT_DIR$/src/GraphArray.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resault.txt" afterPath="$PROJECT_DIR$/resault.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphList.java" afterPath="$PROJECT_DIR$/src/GraphList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GraphSparse.java" afterPath="$PROJECT_DIR$/src/GraphSparse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InputHandler.java" afterPath="$PROJECT_DIR$/src/InputHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sort.java" afterPath="$PROJECT_DIR$/src/Sort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test1.txt" afterPath="$PROJECT_DIR$/test1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test2.txt" afterPath="$PROJECT_DIR$/test2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Vertex.java" afterPath="$PROJECT_DIR$/src/Vertex.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GraphList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GraphList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="218" column="5" lean-forward="true" selection-start-line="218" selection-start-column="5" selection-end-line="218" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="164" column="12" lean-forward="true" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,28 +37,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphSparse.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GraphSparse.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GraphSparse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="107" column="48" lean-forward="false" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vertex.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vertex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="903">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding>
-                <element signature="e#147#148#0" expanded="true" />
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#225#226#0" expanded="true" />
-                <element signature="e#254#255#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-                <element signature="e#331#332#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2856#2857#0" expanded="true" />
+                <element signature="e#2902#2903#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,35 +54,10 @@
       <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="798">
+              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resault.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resault.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sort.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Sort.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="174" column="9" lean-forward="true" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
-              <folding>
-                <element signature="method#optimum#0;class#Sort#0" expanded="false" />
-                <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
-                <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
-                <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,10 +66,40 @@
       <file leaf-file-name="InputHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InputHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="137" column="43" lean-forward="true" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
+            <state relative-caret-position="336">
+              <caret line="120" column="36" lean-forward="false" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="g1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/g1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Sort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="212" column="58" lean-forward="false" selection-start-line="206" selection-start-column="8" selection-end-line="212" selection-end-column="58" />
+              <folding>
+                <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+                <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+                <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+                <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -137,6 +118,7 @@
     <findStrings>
       <find>getEdges</find>
       <find>getTime</find>
+      <find>A</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,17 +151,22 @@
         <option value="$PROJECT_DIR$/src/GraphArray.java" />
         <option value="$PROJECT_DIR$/resault.txt" />
         <option value="$PROJECT_DIR$/src/GNode.java" />
-        <option value="$PROJECT_DIR$/src/GraphList.java" />
-        <option value="$PROJECT_DIR$/src/Vertex.java" />
         <option value="$PROJECT_DIR$/src/Graph.java" />
+        <option value="$PROJECT_DIR$/src/Vertex.java" />
+        <option value="$PROJECT_DIR$/src/GraphSparse.java" />
         <option value="$PROJECT_DIR$/src/Sort.java" />
         <option value="$PROJECT_DIR$/src/InputHandler.java" />
-        <option value="$PROJECT_DIR$/src/GraphSparse.java" />
+        <option value="$PROJECT_DIR$/src/GraphList.java" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
     <option name="y" value="27" />
     <option name="width" value="960" />
     <option name="height" value="1053" />
@@ -218,7 +205,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -236,8 +222,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -470,34 +457,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.49786323" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.50427353" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34835166" sideWeight="0.4957265" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.4957265" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33076924" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33186814" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122329056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12446581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -522,22 +510,15 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GraphList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="155" column="41" lean-forward="false" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2499">
           <caret line="158" column="77" lean-forward="false" selection-start-line="158" selection-start-column="70" selection-end-line="158" selection-end-column="77" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+            <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -548,6 +529,11 @@
           <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -576,6 +562,11 @@
           <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,6 +577,9 @@
           <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+            <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -604,6 +598,11 @@
           <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -632,6 +631,11 @@
           <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -657,6 +661,9 @@
           <caret line="102" column="11" lean-forward="false" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+            <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -677,6 +684,9 @@
           <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+            <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -687,6 +697,11 @@
           <caret line="56" column="41" lean-forward="false" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,6 +730,9 @@
           <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
+            <element signature="method#quickVertex#1;class#Sort#0" expanded="false" />
+            <element signature="method#swapVertex#0;class#Sort#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -725,6 +743,11 @@
           <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -761,6 +784,11 @@
           <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -792,6 +820,11 @@
           <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -861,51 +894,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/g1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graph.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="84">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vertex.java">
+    <entry file="file://$PROJECT_DIR$/g1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-            <element signature="e#331#332#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="63">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="174" column="9" lean-forward="true" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
+        <state relative-caret-position="392">
+          <caret line="212" column="58" lean-forward="false" selection-start-line="206" selection-start-column="8" selection-end-line="212" selection-end-column="58" />
           <folding>
             <element signature="method#optimum#0;class#Sort#0" expanded="false" />
             <element signature="method#quickVertex#0;class#Sort#0" expanded="false" />
@@ -917,36 +925,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InputHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="137" column="43" lean-forward="true" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
+        <state relative-caret-position="336">
+          <caret line="120" column="36" lean-forward="false" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="method#getMax#0;class#InputHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="164" column="12" lean-forward="true" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphSparse.java">
+    <entry file="file://$PROJECT_DIR$/res_test1_Optimum_30.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="107" column="48" lean-forward="false" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resault.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="147">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphList.java">
+    <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="218" column="5" lean-forward="true" selection-start-line="218" selection-start-column="5" selection-end-line="218" selection-end-column="5" />
+        <state relative-caret-position="798">
+          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding>
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphSparse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2856#2857#0" expanded="true" />
+            <element signature="e#2902#2903#0" expanded="true" />
           </folding>
         </state>
       </provider>

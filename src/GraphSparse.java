@@ -1,10 +1,19 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GraphSparse extends Graph {
 
-    public GraphSparse(ArrayList<Edge> edges, int numberOfVertices) {
+    private Boolean[] visited;
+
+    public GraphSparse(ArrayList<Edge> edges, Vertex[] vertices, int numberOfVertices) {
         this.edges = edges;
         this.numberOfVertices = numberOfVertices;
+        this.vertices = vertices;
+        visited = new Boolean[numberOfVertices];
+        numberOfEdges = edges.size();
+        averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
     @Override
@@ -12,7 +21,6 @@ public class GraphSparse extends Graph {
 
     @Override
     protected boolean DFS() {
-        Boolean[] visited = new Boolean[numberOfVertices];
         for (int i = 1 ; i < numberOfVertices ; i++)
             visited[i] = false;
         DFS(1, visited);
@@ -66,11 +74,7 @@ public class GraphSparse extends Graph {
 
     @Override
     protected int degreeOfVertex(int v) {
-        int degree = 0;
-        for (Edge a : edges)
-            if(a.getVertex1().getVertexNumber() == v || a.getVertex2().getVertexNumber() == v)
-                degree++;
-        return degree;
+        return vertices[v].getDegree();
     }
 
     @Override
@@ -91,12 +95,27 @@ public class GraphSparse extends Graph {
             }
         }
         edges.remove(index);
+        vertices[v1].minusDegree();
+        vertices[v2].minusDegree();
         System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
     @Override
     protected void write2File() {
-
+        try {
+            boolean index = visited[1];
+            FileOutputStream fo = new FileOutputStream("resault.txt");
+            for (int i = 1 ; i < visited.length ; i++) {
+                String line = "#" + i + " : " + ((visited[i] == index) ? "A" : "B");
+                byte[] byteArray = line.getBytes();
+                fo.write(byteArray);
+                fo.write("\n".getBytes());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void print() {
@@ -105,11 +124,14 @@ public class GraphSparse extends Graph {
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("graph.txt");
-        GraphSparse b = new GraphSparse(a.fetchAdjacencySparseMatrix(), a.getInputSize());
+        InputHandler a = new InputHandler("g1.txt");
+        GraphSparse b = new GraphSparse(a.fetchAdjacencySparseMatrix(), a.getVertices(), a.getInputSize());
         System.out.println(a.time);
         b.identifyingCommunities(5,1);
         for (Edge d : b.edges)
             System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
+
+      /*  for (Vertex d : b.vertices)
+            System.out.println(d.getVertexNumber() + " degree's : " + d.getDegree());*/
     }
 }

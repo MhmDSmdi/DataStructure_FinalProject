@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class InputHandler {
     private ArrayList<Edge> edges;
-    private ArrayList<Vertex> vertices;
+    private Vertex[] vertices;
     private String fileAddress;
     private int inputSize;
     private String command;
@@ -14,7 +14,6 @@ public class InputHandler {
 
     public InputHandler(String fileAddress) {
         this.fileAddress = fileAddress;
-        vertices = new ArrayList<>();
     }
 
     public int getInputSize() {
@@ -23,6 +22,10 @@ public class InputHandler {
 
     public ArrayList<Edge> getEdges() {
         return edges;
+    }
+
+    public Vertex[] getVertices() {
+        return vertices;
     }
 
     private boolean isExist(int v1, int v2) {
@@ -66,33 +69,55 @@ public class InputHandler {
         return adjacencyMatrix;
     }*/
 
+    private int getMax() {
+        int max = 0;
+        try {
+            FileInputStream fi = new FileInputStream(fileAddress);
+            Scanner scanner = new Scanner(fi);
+            String temp;
+            while(scanner.hasNext()) {
+                temp = scanner.nextLine();
+                String[] splited = temp.split(",");
+                if (max < Integer.parseInt(splited[0].trim()))
+                    max = Integer.parseInt(splited[0].trim());
+                else if (max < Integer.parseInt(splited[1].trim()))
+                    max = Integer.parseInt(splited[1].trim());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return max;
+    }
+
     public GNode[] fetchAdjacencyList() {
         TimeHandler.startTime();
         edges = new ArrayList<>();
         GNode[] gNodes = {};
+        inputSize = getMax() + 1;
+        vertices = new Vertex[inputSize];
+        vertices[0] = new Vertex(0);
         try {
             FileInputStream fi = new FileInputStream(fileAddress);
             Scanner scanner = new Scanner(fi);
             String temp;
             ArrayList<Integer> vertexData = new ArrayList<>();
-            ArrayList<Integer> recentVertex = new ArrayList<>();
             while(scanner.hasNext()) {
                 temp = scanner.nextLine();
                 String[] splited = temp.split(",");
                 vertexData.add(Integer.parseInt(splited[0]));
                 vertexData.add(Integer.parseInt(splited[1]));
-                if (!recentVertex.contains(Integer.parseInt(splited[0])))
-                    recentVertex.add(Integer.parseInt(splited[0]));
-                if (!recentVertex.contains(Integer.parseInt(splited[1])))
-                    recentVertex.add(Integer.parseInt(splited[1]));
             }
-            inputSize = recentVertex.size() + 1;
             gNodes = new GNode[inputSize];
-
             for (int i = 0 ; i < vertexData.size() ; i += 2) {
+                if (vertices[vertexData.get(i)] == null)
+                    vertices[vertexData.get(i)] = new Vertex(vertexData.get(i));
+                if (vertices[vertexData.get(i + 1)] == null)
+                    vertices[vertexData.get(i + 1)] = new Vertex(vertexData.get(i + 1));
                 GNode a = new GNode(gNodes[vertexData.get(i)], vertexData.get(i + 1));
                 if(!isExist(vertexData.get(i), vertexData.get(i + 1))) {
-                    Edge edge = new Edge(new Vertex(vertexData.get(i)), new Vertex(vertexData.get(i + 1)), 0);
+                    Edge edge = new Edge(vertices[vertexData.get(i)], vertices[vertexData.get(i + 1)], 0);
+                    vertices[vertexData.get(i)].plusDegree();
+                    vertices[vertexData.get(i + 1)].plusDegree();
                     edges.add(edge);
                 }
                 gNodes[vertexData.get(i)] = a;
@@ -107,7 +132,9 @@ public class InputHandler {
     public ArrayList<Edge> fetchAdjacencySparseMatrix() {
         TimeHandler.startTime();
         edges = new ArrayList<>();
-        ArrayList<Integer> recentVertex = new ArrayList<>();
+        inputSize = getMax() + 1;
+        vertices = new Vertex[inputSize];
+        vertices[0] = new Vertex(0);
         try {
             FileInputStream fi = new FileInputStream(fileAddress);
             Scanner scanner = new Scanner(fi);
@@ -118,20 +145,16 @@ public class InputHandler {
                 String[] splited = temp.split(",");
                 vertexData.add(Integer.parseInt(splited[0]));
                 vertexData.add(Integer.parseInt(splited[1]));
-                if (!recentVertex.contains(Integer.parseInt(splited[0])))
-                    recentVertex.add(Integer.parseInt(splited[0]));
-                if (!recentVertex.contains(Integer.parseInt(splited[1])))
-                    recentVertex.add(Integer.parseInt(splited[1]));
             }
-
-            inputSize = recentVertex.size() + 1;
-            Vertex ziro = new Vertex(0);
-            vertices.add(ziro);
-            Sort sort = new Sort();
             for (int i = 0 ; i < vertexData.size() ; i += 2) {
+                if (vertices[vertexData.get(i)] == null)
+                    vertices[vertexData.get(i)] = new Vertex(vertexData.get(i));
+                if (vertices[vertexData.get(i + 1)] == null)
+                    vertices[vertexData.get(i + 1)] = new Vertex(vertexData.get(i + 1));
                 if(!isExist(vertexData.get(i), vertexData.get(i + 1))) {
-
-                    Edge edge = new Edge(new Vertex(vertexData.get(i)), new Vertex(vertexData.get(i + 1)), 0);
+                    Edge edge = new Edge(vertices[vertexData.get(i)], vertices[vertexData.get(i + 1)], 0);
+                    vertices[vertexData.get(i)].plusDegree();
+                    vertices[vertexData.get(i + 1)].plusDegree();
                     edges.add(edge);
                 }
             }
@@ -176,11 +199,7 @@ public class InputHandler {
 
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test2.txt");
-        /*ArrayList<Edge> d = a.fetchAdjacencySparseMatrix();
-        for (Edge f : d)
-            System.out.println("v1: " + f.getVertex1() + "    v2: " + f.getVertex2());*/
-        //a.fetchAdjacencyList();
+
     }
 
 }

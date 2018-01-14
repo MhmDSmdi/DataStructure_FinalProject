@@ -204,12 +204,12 @@ public class Sort {
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test2.txt");
+        /*InputHandler a = new InputHandler("test2.txt");
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(),a.getInputSize());
         b.fetchCostOfEdges();
         Sort e = new Sort();
         e.insertion(b.getEdges());
         for (Edge d : b.getEdges())
-            System.out.print("- " + d.getCost() + " -");
+            System.out.print("- " + d.getCost() + " -");*/
     }
 }

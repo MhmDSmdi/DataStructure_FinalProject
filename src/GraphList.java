@@ -9,10 +9,11 @@ public class GraphList extends Graph {
     private GNode[] adjacencyList;
     private Boolean[] visited;
 
-    public GraphList(GNode[] adjacencyList, ArrayList<Edge> edges,int numberOfVertices) {
+    public GraphList(GNode[] adjacencyList, ArrayList<Edge> edges, Vertex[] vertices ,int numberOfVertices) {
         this.adjacencyList = adjacencyList;
         this.numberOfVertices = numberOfVertices;
         this.edges = edges;
+        this.vertices = vertices;
         visited = new Boolean[numberOfVertices];
         numberOfEdges = edges.size();
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
@@ -65,14 +66,14 @@ public class GraphList extends Graph {
     }
 
     public int degreeOfVertex(int v) {
-        int count = 0;
+       /* int count = 0;
         GNode root = adjacencyList[v];
         while (root != null) {
-            /*if (!root.isDeleted())*/
+            *//*if (!root.isDeleted())*//*
                 count++;
             root = root.getLink();
-        }
-        return count;
+        }*/
+        return vertices[v].getDegree();
     }
 
     @Override
@@ -174,8 +175,10 @@ public class GraphList extends Graph {
                     root = root.getLink();
                 }
             }
-        //System.out.println("(" + count + ")" + v1 + " and " + v2 + "  Was Removed" + "  with Cost: " + edges.get(0).getCost() +  "  List Size: " + edges.size());
+        System.out.println("(" + count + ")" + v1 + " and " + v2 + "  Was Removed" + "  with Cost: " + edges.get(0).getCost() +  "  List Size: " + edges.size());
         //printList();
+        vertices[v1].minusDegree();
+        vertices[v2].minusDegree();
         edges.remove(0);
         count++;
     }
@@ -220,16 +223,16 @@ public class GraphList extends Graph {
 
     public static void main(String[] args) {
         InputHandler a = new InputHandler("test1.txt");
-        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(), a.getInputSize());
+        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(), a.getVertices(), a.getInputSize());
         //b.printList();
         System.out.println(a.time);
-        /*System.out.println();
+        System.out.println();
         System.out.println();
         b.identifyingCommunities(5,30);
         System.out.println();
         System.out.println();
         for (Edge d : b.edges)
-            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());*/
+            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
        // b.DFS();
         /*System.out.println(b.isConnected(2,4));
         System.out.println(b.countCycle(5,2));
