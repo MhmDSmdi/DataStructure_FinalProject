@@ -16,15 +16,13 @@ public class GraphSparse extends Graph {
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
-    @Override
-    protected void fillEdges() {}
+    public GraphSparse() {}
 
     @Override
     protected boolean DFS() {
         for (int i = 1 ; i < numberOfVertices ; i++)
             visited[i] = false;
         DFS(1, visited);
-
         for (int i = 1 ; i < numberOfVertices ; i++) {
             if (!visited[i])
                 return false;
@@ -85,6 +83,10 @@ public class GraphSparse extends Graph {
         }
     }
 
+    /*private int findEdge(int v1, int v2) {
+
+    }*/
+
     @Override
     protected void deleteEdge(int v1, int v2) {
         int index = 0;
@@ -97,7 +99,7 @@ public class GraphSparse extends Graph {
         edges.remove(index);
         vertices[v1].minusDegree();
         vertices[v2].minusDegree();
-        System.out.println(v1 + " and " + v2 + "  Was Removed");
+        //System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
     @Override
@@ -120,17 +122,21 @@ public class GraphSparse extends Graph {
 
     public void print() {
         for (Edge a : edges)
-            System.out.println("V1 = " + a.getVertex1().getVertexNumber() + "    V2 = " + a.getVertex2().getVertexNumber());
+            System.out.println("V1 = " + a.getVertex1().getVertexNumber() + "    V2 = " + a.getVertex2().getVertexNumber() + " Degree: " + a.getVertex1().getDegree());
+        /*for (int i = 0 ; i < 100 ; i++)
+            System.out.println("V1 = " + edges.get(i).getVertex1().getVertexNumber() + "    V2 = " + edges.get(i).getVertex2().getVertexNumber() + " Degree: " + edges.get(i).getVertex1().getDegree());*/
+
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("g1.txt");
+        InputHandler a = new InputHandler("test1.txt");
         GraphSparse b = new GraphSparse(a.fetchAdjacencySparseMatrix(), a.getVertices(), a.getInputSize());
         System.out.println(a.time);
-        b.identifyingCommunities(5,1);
-        for (Edge d : b.edges)
+        //b.identifyingCommunities(5,1);
+        /*for (Edge d : b.edges)
             System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
-
+*/
+        b.print();
       /*  for (Vertex d : b.vertices)
             System.out.println(d.getVertexNumber() + " degree's : " + d.getDegree());*/
     }

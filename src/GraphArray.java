@@ -7,12 +7,11 @@ public class GraphArray extends Graph {
         this.adjacencyMatrix = adjacencyMatrix;
         this.numberOfVertices = numberOfVertices;
         edges = new ArrayList<>();
-        fillEdges();
         numberOfEdges = edges.size();
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
-    @Override
+    /*@Override
     protected void fillEdges() {
         for (int i = 1 ; i < numberOfVertices ; i++)
             for (int j = 0 + i ; j < numberOfVertices ; j++)
@@ -20,7 +19,7 @@ public class GraphArray extends Graph {
                     Edge temp = new Edge(new Vertex(i), new Vertex(j), 0);
                     this.edges.add(temp);
                 }
-    }
+    }*/
 
     @Override
     protected boolean DFS() {

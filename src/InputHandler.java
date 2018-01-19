@@ -16,6 +16,13 @@ public class InputHandler {
         this.fileAddress = fileAddress;
     }
 
+    public InputHandler() {
+        System.out.print("Please enter file'address:  ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        fileAddress = scanner.nextLine().trim();
+    }
+
     public int getInputSize() {
         return inputSize;
     }
@@ -126,6 +133,7 @@ public class InputHandler {
             e.printStackTrace();
         }
         time = TimeHandler.fetchTime();
+        System.out.println("Storing Time : " + time);
         return gNodes;
     }
 
@@ -162,10 +170,12 @@ public class InputHandler {
             e.printStackTrace();
         }
         time = TimeHandler.fetchTime();
+        System.out.println("Storing Time : " + time);
         return edges;
     }
 
     public int getCommand() {
+        System.out.println("Enter your Command: ");
         Scanner scanner = new Scanner(System.in);
         command = scanner.nextLine();
         switch (command.trim().toLowerCase()) {
@@ -186,20 +196,26 @@ public class InputHandler {
             case "run matrix bubble":
                 return 8;
             case "run linkedlist optimum insertion":
+                System.out.print("Enetr N: ");
+                n = scanner.nextInt();
+                System.out.println();
                 return 9;
             case "run matrix optimum insertion":
+                System.out.print("Enetr N: ");
+                n = scanner.nextInt();
+                System.out.println();
                 return 10;
             case "run linkedlist optimum bubble":
+                System.out.print("Enetr N: ");
+                n = scanner.nextInt();
+                System.out.println();
                 return 11;
             case "run matrix optimum bubble":
+                System.out.print("Enetr N: ");
+                n = scanner.nextInt();
+                System.out.println();
                 return 12;
         }
         return -1;
     }
-
-
-    public static void main(String[] args) {
-
-    }
-
 }

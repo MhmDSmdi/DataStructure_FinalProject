@@ -19,6 +19,8 @@ public class GraphList extends Graph {
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
+    public GraphList() {}
+
     public void printList() {
         for (int i = 1 ; i < adjacencyList.length ; i++) {
             GNode root = adjacencyList[i];
@@ -30,10 +32,6 @@ public class GraphList extends Graph {
             }
             System.out.println();
         }
-    }
-
-    public ArrayList<Edge> getEdges() {
-        return edges;
     }
 
     private boolean isConnected(int v1, int v2) {
@@ -90,32 +88,22 @@ public class GraphList extends Graph {
         return true;
     }
 
-    void setTagVertex(Boolean[] booleans) {
-        for (int i = 1 ; i < adjacencyList.length ; i++) {
-            GNode temp = adjacencyList[1];
-        }
-    }
-
     @Override
     protected void DFS(int v, Boolean[] visited) {
-        visited[v] = true;
+       /* visited[v] = true;
         GNode root = adjacencyList[v];
         while(root != null) {
-            if(!visited[root.getVertexNumber()]/* && !root.isDeleted()*/)
+            if(!visited[root.getVertexNumber()])
                 DFS(root.getVertexNumber(), visited);
             root = root.getLink();
 
-        }
-    }
-
-    public void dfs(int v, Boolean[] visited) {
-        Stack<Integer> s = new Stack<>();
+        }*/
+        MyStack<Integer> s = new MyStack<>();
         s.push(v);
         while (!s.isEmpty()) {
             int vertex = s.pop();
             if (!visited[vertex]) {
                 visited[vertex] = true;
-                //System.out.println(vertex);
                 GNode root = adjacencyList[vertex];
                 while(root != null) {
                     s.push(root.getVertexNumber());
@@ -127,27 +115,16 @@ public class GraphList extends Graph {
 
     @Override
     protected void deleteEdge(int v1, int v2) {
-      /*  System.out.println("________________________________________________________________________________");
-        System.out.println("Edge: " + v1 + " to " + v2);
-        System.out.println("________________________________________________________________________________");
-        printList();
-        System.out.println("Cycle: " + countCycle(v1 ,v2));
-        System.out.println("Degree V1: " + degreeOfVertex(v1));
-        System.out.println("Degree V2: " + degreeOfVertex(v2));
-        System.out.println("Cost: " + calculateCost(countCycle(v1, v2), degreeOfVertex(v1), degreeOfVertex(v2)));
-        System.out.println("________________________________________________________________________________");*/
         GNode root = adjacencyList[v1];
         GNode prvRoot = null;
         if (root.getVertexNumber() == v2) {
             adjacencyList[v1] = root.getLink();
-            /*adjacencyList[v1].setDeleted();*/
         }
         else
             while (root != null) {
-                if (root.getVertexNumber() == v2 /*&& !root.isDeleted()*/) {
+                if (root.getVertexNumber() == v2) {
                     prvRoot.setLink(root.getLink());
                     root.setLink(null);
-                    //root.setDeleted();
                     break;
                 }
                 else {
@@ -160,14 +137,12 @@ public class GraphList extends Graph {
         prvRoot = null;
         if (root.getVertexNumber() == v1) {
             adjacencyList[v2] = root.getLink();
-            /*adjacencyList[v2].setDeleted();*/
         }
         else
             while (root != null) {
                 if (root.getVertexNumber() == v1) {
                     prvRoot.setLink(root.getLink());
                     root.setLink(null);
-                    /*root.setDeleted();*/
                     break;
                 }
                 else {
@@ -175,8 +150,7 @@ public class GraphList extends Graph {
                     root = root.getLink();
                 }
             }
-        System.out.println("(" + count + ")" + v1 + " and " + v2 + "  Was Removed" + "  with Cost: " + edges.get(0).getCost() +  "  List Size: " + edges.size());
-        //printList();
+        //System.out.println("(" + count + ")" + v1 + " and " + v2 + "  Was Removed" + "  with Cost: " + edges.get(0).getCost() +  "  List Size: " + edges.size());
         vertices[v1].minusDegree();
         vertices[v2].minusDegree();
         edges.remove(0);
@@ -210,10 +184,6 @@ public class GraphList extends Graph {
     }
 
     @Override
-    protected void fillEdges() {
-    }
-
-    @Override
     protected void fetchCostOfEdges() {
         for (Edge a : edges) {
             int cost = calculateCost(countCycle(a.getVertex1().getVertexNumber(), a.getVertex2().getVertexNumber()), degreeOfVertex(a.getVertex1().getVertexNumber()), degreeOfVertex(a.getVertex2().getVertexNumber()));
@@ -221,8 +191,12 @@ public class GraphList extends Graph {
         }
     }
 
+    public ArrayList<Edge> getEdges() {
+        return edges;
+    }
+
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
+        InputHandler a = new InputHandler("g1.txt");
         GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(), a.getVertices(), a.getInputSize());
         //b.printList();
         System.out.println(a.time);

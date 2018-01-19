@@ -8,6 +8,7 @@ public class Sort {
         quick(0, inputArray.size() - 1, inputArray);
         return inputArray;
     }
+
     private void quick(int low, int high, ArrayList<Edge> inputArray) {
         int i = low, j = high;
         int pivot = inputArray.get((low + high) / 2).getCost();
@@ -96,7 +97,6 @@ public class Sort {
             i++;
         }
     }
-
 
     private ArrayList bubble(ArrayList<Edge> inputArray) {
         int temp = 0;

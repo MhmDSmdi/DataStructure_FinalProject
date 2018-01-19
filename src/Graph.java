@@ -10,7 +10,6 @@ public abstract class Graph {
     protected float averageDegreeOfVertex;
     protected int count = 0;
 
-    protected abstract void fillEdges();
     protected abstract boolean DFS();
     protected abstract void DFS(int v, Boolean[] visited);
     protected abstract int countCycle(int v1, int v2);
@@ -52,4 +51,51 @@ public abstract class Graph {
         return temp;
     }
 
+    public int getNumberOfVertices() {
+        return numberOfVertices;
+    }
+
+    public void setNumberOfVertices(int numberOfVertices) {
+        this.numberOfVertices = numberOfVertices;
+    }
+
+    public ArrayList<Edge> getEdges() {
+        return edges;
+    }
+
+    public void setEdges(ArrayList<Edge> edges) {
+        this.edges = edges;
+    }
+
+    public Vertex[] getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(Vertex[] vertices) {
+        this.vertices = vertices;
+    }
+
+    public int getNumberOfEdges() {
+        return numberOfEdges;
+    }
+
+    public void setNumberOfEdges(int numberOfEdges) {
+        this.numberOfEdges = numberOfEdges;
+    }
+
+    public float getAverageDegreeOfVertex() {
+        return averageDegreeOfVertex;
+    }
+
+    public void setAverageDegreeOfVertex(float averageDegreeOfVertex) {
+        this.averageDegreeOfVertex = averageDegreeOfVertex;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }
