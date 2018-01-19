@@ -16,8 +16,6 @@ public class GraphSparse extends Graph {
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
-    public GraphSparse() {}
-
     @Override
     protected boolean DFS() {
         for (int i = 1 ; i < numberOfVertices ; i++)
@@ -32,12 +30,26 @@ public class GraphSparse extends Graph {
 
     @Override
     protected void DFS(int v, Boolean[] visited) {
-        visited[v] = true;
+        MyStack<Integer> s = new MyStack<>();
+        /*visited[v] = true;
         for (Edge a : edges) {
             if (a.getVertex1().getVertexNumber() == v && !visited[a.getVertex2().getVertexNumber()])
                 DFS(a.getVertex2().getVertexNumber(), visited);
             if (a.getVertex2().getVertexNumber() == v && !visited[a.getVertex1().getVertexNumber()])
                 DFS(a.getVertex1().getVertexNumber(), visited);
+        }*/
+        s.push(v);
+        while (!s.isEmpty()) {
+            int vertex = s.pop();
+            if (!visited[vertex]) {
+                visited[vertex] = true;
+                for (Edge a : edges) {
+                    if (a.getVertex1().getVertexNumber() == vertex && !visited[a.getVertex2().getVertexNumber()])
+                        s.push(a.getVertex2().getVertexNumber());
+                    if ( a.getVertex2().getVertexNumber() == vertex && !visited[a.getVertex1().getVertexNumber()])
+                        s.push(a.getVertex1().getVertexNumber());
+                }
+            }
         }
     }
 
@@ -99,7 +111,7 @@ public class GraphSparse extends Graph {
         edges.remove(index);
         vertices[v1].minusDegree();
         vertices[v2].minusDegree();
-        //System.out.println(v1 + " and " + v2 + "  Was Removed");
+        System.out.println(v1 + " and " + v2 + "  Was Removed");
     }
 
     @Override
@@ -129,14 +141,14 @@ public class GraphSparse extends Graph {
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("test1.txt");
+        InputHandler a = new InputHandler("g1.txt");
         GraphSparse b = new GraphSparse(a.fetchAdjacencySparseMatrix(), a.getVertices(), a.getInputSize());
         System.out.println(a.time);
-        //b.identifyingCommunities(5,1);
+        b.identifyingCommunities(5,30);
         /*for (Edge d : b.edges)
-            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
-*/
-        b.print();
+            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());*/
+        //b.print();
+        //System.out.println(b.DFS());
       /*  for (Vertex d : b.vertices)
             System.out.println(d.getVertexNumber() + " degree's : " + d.getDegree());*/
     }

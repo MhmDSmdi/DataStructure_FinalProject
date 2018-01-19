@@ -19,14 +19,11 @@ public class GraphList extends Graph {
         averageDegreeOfVertex = numberOfEdges / this.numberOfVertices ;
     }
 
-    public GraphList() {}
-
     public void printList() {
         for (int i = 1 ; i < adjacencyList.length ; i++) {
             GNode root = adjacencyList[i];
             System.out.print("Parent " + i + " : ");
             while (root != null) {
-                /*if (!root.isDeleted())*/
                 System.out.print(root.getVertexNumber() + " - ");
                 root = root.getLink();
             }
@@ -37,7 +34,7 @@ public class GraphList extends Graph {
     private boolean isConnected(int v1, int v2) {
         GNode root = adjacencyList[v1];
         while(root != null){
-            if (root.getVertexNumber() == v2/* && !root.isDeleted()*/)
+            if (root.getVertexNumber() == v2)
                 return true;
             else
                 root = root.getLink();
@@ -49,11 +46,9 @@ public class GraphList extends Graph {
         int count = 0;
         if (isConnected(v1, v2)) {
             GNode root = adjacencyList[v1];
-            //System.out.println("Cycle Path between " + v1 + " and " + v2);
             while (root != null) {
-                if (/*!root.isDeleted() && */isConnected(v2, root.getVertexNumber())) {
+                if (isConnected(v2, root.getVertexNumber())) {
                     count++;
-                    //System.out.println("* " + root.getVertexNumber());
                 }
                 root = root.getLink();
             }
@@ -64,13 +59,6 @@ public class GraphList extends Graph {
     }
 
     public int degreeOfVertex(int v) {
-       /* int count = 0;
-        GNode root = adjacencyList[v];
-        while (root != null) {
-            *//*if (!root.isDeleted())*//*
-                count++;
-            root = root.getLink();
-        }*/
         return vertices[v].getDegree();
     }
 
@@ -79,7 +67,6 @@ public class GraphList extends Graph {
         for (int i = 1 ; i < numberOfVertices ; i++)
             visited[i] = false;
         DFS(1, visited);
-
         for (int i = 1 ; i < numberOfVertices ; i++) {
             if (!visited[i]) {
                 return false;
@@ -90,14 +77,6 @@ public class GraphList extends Graph {
 
     @Override
     protected void DFS(int v, Boolean[] visited) {
-       /* visited[v] = true;
-        GNode root = adjacencyList[v];
-        while(root != null) {
-            if(!visited[root.getVertexNumber()])
-                DFS(root.getVertexNumber(), visited);
-            root = root.getLink();
-
-        }*/
         MyStack<Integer> s = new MyStack<>();
         s.push(v);
         while (!s.isEmpty()) {
@@ -150,7 +129,6 @@ public class GraphList extends Graph {
                     root = root.getLink();
                 }
             }
-        //System.out.println("(" + count + ")" + v1 + " and " + v2 + "  Was Removed" + "  with Cost: " + edges.get(0).getCost() +  "  List Size: " + edges.size());
         vertices[v1].minusDegree();
         vertices[v2].minusDegree();
         edges.remove(0);

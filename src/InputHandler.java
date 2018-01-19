@@ -43,39 +43,6 @@ public class InputHandler {
         return false;
     }
 
-    /*public int[][] fetchAdjacencyMatrix() {
-        time = System.currentTimeMillis();
-        int[][] adjacencyMatrix = {};
-        try {
-            FileInputStream fi = new FileInputStream(fileAddress);
-            Scanner scanner = new Scanner(fi);
-            String temp;
-            ArrayList<Integer> vertexData = new ArrayList<>();
-            ArrayList<Integer> recentVertex = new ArrayList<>();
-            while(scanner.hasNext()) {
-                temp = scanner.nextLine();
-                String[] splited = temp.split(",");
-                vertexData.add(Integer.parseInt(splited[0]));
-                vertexData.add(Integer.parseInt(splited[1]));
-                if (!recentVertex.contains(Integer.parseInt(splited[0])))
-                    recentVertex.add(Integer.parseInt(splited[0]));
-                if (!recentVertex.contains(Integer.parseInt(splited[1])))
-                    recentVertex.add(Integer.parseInt(splited[1]));
-            }
-
-            inputSize = recentVertex.size() + 1;
-            adjacencyMatrix = new int[inputSize][inputSize];
-
-            for (int i = 0 ; i < vertexData.size() - 1 ; i += 2) {
-                adjacencyMatrix[vertexData.get(i)][vertexData.get(i + 1)] = 1;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        time = System.currentTimeMillis() - time;
-        return adjacencyMatrix;
-    }*/
-
     private int getMax() {
         int max = 0;
         try {
