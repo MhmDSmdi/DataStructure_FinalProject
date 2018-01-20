@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class Sort {
@@ -11,7 +12,7 @@ public class Sort {
 
     private void quick(int low, int high, ArrayList<Edge> inputArray) {
         int i = low, j = high;
-        int pivot = inputArray.get((low + high) / 2).getCost();
+        double pivot = inputArray.get((low + high) / 2).getCost();
         while (i <= j) {
             while (inputArray.get(i).getCost() < pivot) i++;
             while (inputArray.get(j).getCost()  > pivot) j--;
@@ -134,7 +135,7 @@ public class Sort {
     private ArrayList optimum(ArrayList<Edge> inputArray, int sortType, int n, int high, int low) {
         if (high - low + 1 > n) {
             int i = low, j = high;
-            int pivot = inputArray.get((low + high) / 2).getCost();
+            double pivot = inputArray.get((low + high) / 2).getCost();
             while (i <= j) {
                 while (inputArray.get(i).getCost() < pivot) i++;
                 while (inputArray.get(j).getCost()  > pivot) j--;
@@ -203,13 +204,30 @@ public class Sort {
         a.set(j, temp);
     }
 
+    private void findBestN() {
+        InputHandler inputHandler = new InputHandler("test1.txt");
+        GraphList graphList = new GraphList(inputHandler.fetchAdjacencyList(), inputHandler.getEdges(), inputHandler.getVertices(), inputHandler.getInputSize());
+        System.out.println("fetched");
+        graphList.fetchCostOfEdges();
+        System.out.println("numVertex" + graphList.numberOfVertices + "   average: " +  graphList.averageDegreeOfVertex + "    numEdge" +  graphList.numberOfEdges);
+        ArrayList<Edge> temp = graphList.edges;
+        TimeHandler.startTime();
+        optimumSort(temp, 0, 29);
+        System.out.println("For N = " + 29 + "  Time is: " + TimeHandler.fetchTime());
+    }
+
     public static void main(String[] args) {
-        /*InputHandler a = new InputHandler("test2.txt");
-        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(),a.getInputSize());
-        b.fetchCostOfEdges();
-        Sort e = new Sort();
-        e.insertion(b.getEdges());
-        for (Edge d : b.getEdges())
-            System.out.print("- " + d.getCost() + " -");*/
+        Sort a = new Sort();
+        ArrayList<Edge> list = new ArrayList<>();
+        list.add(new Edge(null, null, 1.3));
+        list.add(new Edge(null, null, 5.12));
+        list.add(new Edge(null, null, 1.1));
+        list.add(new Edge(null, null, 0.546));
+        list.add(new Edge(null, null, 2.2));
+        list.add(new Edge(null, null, 2.6546));
+        list.add(new Edge(null, null, 8.2));
+        a.insertion(list);
+        for (Edge d : list)
+            System.out.println(d.getCost());
     }
 }

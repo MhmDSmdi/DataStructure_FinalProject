@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        InputHandler inputHandler = new InputHandler("test2.txt");
+        InputHandler inputHandler = new InputHandler("test4.txt");
         GraphSparse graphSparse;
         GraphList graphList;
 
-        while (true) {
+       // while (true) {
             int input = inputHandler.getCommand();
             switch (input) {
                 case 1:
@@ -40,6 +40,7 @@ public class Main {
                     graphSparse.identifyingCommunities(3);
                     break;
                 case 9:
+                    System.out.println("Here");
                     graphList = new GraphList(inputHandler.fetchAdjacencyList(), inputHandler.getEdges(), inputHandler.getVertices(), inputHandler.getInputSize());
                     graphList.identifyingCommunities(5 ,InputHandler.n);
                     break;
@@ -57,6 +58,6 @@ public class Main {
                     graphSparse.identifyingCommunities(4 ,InputHandler.n);
                     break;
             }
-        }
+        //}
     }
 }

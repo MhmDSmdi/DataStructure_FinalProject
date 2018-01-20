@@ -9,7 +9,6 @@ public abstract class Graph {
     protected int numberOfEdges;
     protected float averageDegreeOfVertex;
     protected int count = 0;
-
     protected abstract boolean DFS();
     protected abstract void DFS(int v, Boolean[] visited);
     protected abstract int countCycle(int v1, int v2);
@@ -29,6 +28,7 @@ public abstract class Graph {
         System.out.println("AlgorithmTime : " + TimeHandler.fetchTime());
         write2File();
     }
+
     protected void identifyingCommunities(int sortType, int n) {
         TimeHandler.startTime();
         Sort sort = new Sort();

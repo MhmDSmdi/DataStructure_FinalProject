@@ -142,9 +142,10 @@ public class InputHandler {
     }
 
     public int getCommand() {
-        System.out.println("Enter your Command: ");
+       /* System.out.println("Enter your Command: ");
         Scanner scanner = new Scanner(System.in);
-        command = scanner.nextLine();
+        command = scanner.nextLine();*/
+        command = "run linkedlist optimum insertion";
         switch (command.trim().toLowerCase()) {
             case "run linkedlist quick":
                 return 1;
@@ -163,23 +164,24 @@ public class InputHandler {
             case "run matrix bubble":
                 return 8;
             case "run linkedlist optimum insertion":
-                System.out.print("Enetr N: ");
-                n = scanner.nextInt();
-                System.out.println();
+                //System.out.print("Enetr N: ");
+                //n = scanner.nextInt();
+                n = 26;
+                //System.out.println();
                 return 9;
             case "run matrix optimum insertion":
-                System.out.print("Enetr N: ");
-                n = scanner.nextInt();
-                System.out.println();
+                //System.out.print("Enetr N: ");
+                //n = scanner.nextInt();
+                //System.out.println();
                 return 10;
             case "run linkedlist optimum bubble":
-                System.out.print("Enetr N: ");
-                n = scanner.nextInt();
+                //System.out.print("Enetr N: ");
+                //n = scanner.nextInt();
                 System.out.println();
                 return 11;
             case "run matrix optimum bubble":
-                System.out.print("Enetr N: ");
-                n = scanner.nextInt();
+                //System.out.print("Enetr N: ");
+                //n = scanner.nextInt();
                 System.out.println();
                 return 12;
         }

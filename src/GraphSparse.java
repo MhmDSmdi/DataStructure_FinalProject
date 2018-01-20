@@ -31,13 +31,6 @@ public class GraphSparse extends Graph {
     @Override
     protected void DFS(int v, Boolean[] visited) {
         MyStack<Integer> s = new MyStack<>();
-        /*visited[v] = true;
-        for (Edge a : edges) {
-            if (a.getVertex1().getVertexNumber() == v && !visited[a.getVertex2().getVertexNumber()])
-                DFS(a.getVertex2().getVertexNumber(), visited);
-            if (a.getVertex2().getVertexNumber() == v && !visited[a.getVertex1().getVertexNumber()])
-                DFS(a.getVertex1().getVertexNumber(), visited);
-        }*/
         s.push(v);
         while (!s.isEmpty()) {
             int vertex = s.pop();
@@ -94,10 +87,6 @@ public class GraphSparse extends Graph {
             a.setCost(cost);
         }
     }
-
-    /*private int findEdge(int v1, int v2) {
-
-    }*/
 
     @Override
     protected void deleteEdge(int v1, int v2) {

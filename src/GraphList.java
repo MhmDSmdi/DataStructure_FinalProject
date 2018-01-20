@@ -111,7 +111,6 @@ public class GraphList extends Graph {
                     root = root.getLink();
                 }
             }
-
         root = adjacencyList[v2];
         prvRoot = null;
         if (root.getVertexNumber() == v1) {
@@ -174,23 +173,20 @@ public class GraphList extends Graph {
     }
 
     public static void main(String[] args) {
-        InputHandler a = new InputHandler("g1.txt");
-        GraphList b = new GraphList(a.fetchAdjacencyList(), a.getEdges(), a.getVertices(), a.getInputSize());
-        //b.printList();
-        System.out.println(a.time);
-        System.out.println();
-        System.out.println();
-        b.identifyingCommunities(5,30);
-        System.out.println();
-        System.out.println();
-        for (Edge d : b.edges)
-            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());
-       // b.DFS();
-        /*System.out.println(b.isConnected(2,4));
-        System.out.println(b.countCycle(5,2));
-        b.fetchCostOfEdges();
-        b.deleteEdge(2,4);
-        System.out.println(b.countCycle(5,2));*/
-
+        System.out.println("Test2 - List");
+        System.out.println("Totall Time = 5 Step + store-Time");
+        InputHandler a = new InputHandler("test2.txt");
+        final GNode[] gnodeT = a.fetchAdjacencyList();
+        final ArrayList<Edge> edgeT = a.getEdges();
+        final Vertex[] verT = a.getVertices();
+        final int n = a.getInputSize();
+        for (int i = 1 ; i < 6 ; i += 2) {
+            GraphList temp = new GraphList(gnodeT.clone(), (ArrayList<Edge>) edgeT.clone(), verT.clone(), n);
+            System.out.println("------------------------------------------------");
+            System.out.println("Sort Type: " + i + "  Vercies: " + temp.numberOfVertices + "   Edges : "  + temp.numberOfEdges + "  average : " + temp.averageDegreeOfVertex);
+            temp.identifyingCommunities(i);
+        }
+        /*for (Edge d : b.edges)
+            System.out.println(d.getVertex1().getVertexNumber() + " and " + d.getVertex2().getVertexNumber());*/
     }
 }
